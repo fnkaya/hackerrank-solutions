@@ -25,12 +25,9 @@ public class Palindrome {
                 resultList.add(-1);
             }
             else {
-                char[] charsA = stringValueA.toCharArray();
-                char[] charsB = stringValueB.toCharArray();
-
-                for (int k = 0; k < charsA.length ; k++) {
-                    char charA = charsA[k];
-                    char charB = charsB[k];
+                for (int k = 0; k < stringValueA.length() ; k++) {
+                    char charA = stringValueA.charAt(k);
+                    char charB = stringValueB.charAt(k);
 
                     if (!letterMapA.containsKey(charA))
                         letterMapA.put(charA, 1);
@@ -47,12 +44,7 @@ public class Palindrome {
                         .keySet()
                         .stream()
                         .filter(keyA -> !letterMapB.containsKey(keyA) || (letterMapB.containsKey(keyA) && letterMapA.get(keyA) > letterMapB.get(keyA)))
-                        .map(key -> {
-                            if (!letterMapB.containsKey(key))
-                                return letterMapA.get(key);
-                            else
-                                return letterMapA.get(key) - letterMapB.get(key);
-                        })
+                        .map(key ->  !letterMapB.containsKey(key) ? letterMapA.get(key) : (letterMapA.get(key) - letterMapB.get(key)))
                         .reduce(0, Integer::sum);
 
                 resultList.add(diff);
