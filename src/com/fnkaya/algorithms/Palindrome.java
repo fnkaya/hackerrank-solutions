@@ -25,6 +25,7 @@ public class Palindrome {
                 resultList.add(-1);
             }
             else {
+
                 for (int k = 0; k < stringValueA.length() ; k++) {
                     char charA = stringValueA.charAt(k);
                     char charB = stringValueB.charAt(k);
