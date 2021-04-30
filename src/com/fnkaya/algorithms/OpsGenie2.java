@@ -10,13 +10,12 @@ public class OpsGenie2 {
     }
 
     public static int numberOfAlerts(int precedingMinutes, int alertThreshold, List<Integer> numCalls) {
-        List<Integer> list = new ArrayList<>();
         int alertCounter = 0;
-
         int sum = 0;
+
         for (int i = 0; i < numCalls.size() ; i++) {
 
-           if (i % precedingMinutes != 0 || i == 0) {
+           if ( i == 0 || i % precedingMinutes != 0) {
                sum += numCalls.get(i);
            }
            else {
