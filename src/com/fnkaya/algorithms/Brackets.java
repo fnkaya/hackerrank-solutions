@@ -1,8 +1,8 @@
-package certification;
+package com.fnkaya.algorithms;
 
 import java.util.*;
 
-public class JavaOne {
+public class Brackets {
 
     public static void main(String[] args) {
         Parser parser = new Parser();
